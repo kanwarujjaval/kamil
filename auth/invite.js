@@ -2,6 +2,7 @@
  * Created by KanwarUjjaval on 16-02-2015.
  */
 var inviteModel = require('../models/invite.js').inviteModel;
+var userModel = require('../models/user.js').userModel;
 var validator = require("validator");
 var mailer = require("../service/mailer.js");
 
@@ -29,18 +30,17 @@ exports.createInvite = function (req, res, next) {
                 var newInvite = new inviteModel();
                 newInvite.email = req.body.email;
                 newInvite.name = req.body.name;
-                newInvite.genre = req.body.genre;
+                newInvite.genre = spliter(req.body.genre);
                 newInvite.music = spliter(req.body.music);
                 newInvite.social = spliter(req.body.social);
                 newInvite.location = req.body.location;
                 newInvite.token = newInvite.genToken();
-                newInvite.invited = false;
                 newInvite.save(function (err) {
                     if (err) {
                         res.send(err);
                     }
                     else {
-                        mailer.sendWelcomeMail(req.body.email);
+                        mailer.sendInviteMail(res, req.body.email, '<p>Hello Mr. '+ req.body.name +'<br/>Your invite has been created and it is currently under review<br/>You will be informed when it is accepted or denied! </p>', 'Welcome');
                         res.render('msg',{
                             msg:"Your invite has been created"
                         });
@@ -58,18 +58,51 @@ exports.createInvite = function (req, res, next) {
 
 
 exports.sendToken = function (req, res, next) {
-    inviteModel.findOneAndUpdate(
-        { 'email': req.body.email },
-        { 'invited': true,
-            'invitationSent':true,
-            'invitationSentOn': Date.now()
-        },
-        function (err, invitedUser) {
+    inviteModel.findOneAndUpdate({ 'email': req.body.email },
+        {'invited': true,'invitationSent':true,'invitationSentOn': Date.now()},function (err, invitedUser) {
         if (err) {
             res.send(err);
         }
         else {
-            mailer.sendInviteMail(res, req.body.email, '<p>Welcome, Sign up at <a href="http://opencloudschool.org/register/' + invitedUser.token + '/">click here</a></p>', 'Get Started with OpencloudSchool');
+            mailer.sendInviteMail(res, req.body.email, '<p>Your invitation request has been accepted </p>', 'Welcome');
         }
     });
+};
+
+
+exports.createSubscribe = function (req, res, next) {
+    if (validator.isEmail(req.body.email)) {
+        userModel.findOne({ 'email': req.body.email }, function (err, user) {
+            if (err) {
+                res.send(err);
+            }
+            else
+            if (user) {
+                res.render('msg',{
+                    msg:"Subscription request exists"
+                });
+            }
+            else {
+                var newUser = new userModel();
+                newUser.email = req.body.email;
+                newUser.interests = req.body.interests;
+                newUser.save(function (err) {
+                    if (err) {
+                        res.send(err);
+                    }
+                    else {
+                        mailer.sendInviteMail(res, req.body.email, '<p>Hello<br/>Your request for subscription has been confirmed!</p>', 'Welcome');
+                        res.render('msg',{
+                            msg:"You are now subscribed!"
+                        });
+                    }
+                });
+            }
+        })
+    }
+    else {
+        res.render('msg',{
+            msg:"Invalid email"
+        });
+    }
 };

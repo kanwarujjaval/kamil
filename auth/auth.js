@@ -13,6 +13,10 @@ exports.createInvite = function (req, res, next) {
     inviteAuth.createInvite(req, res, next);
 };
 
+exports.createSubscribe = function (req, res, next) {
+    inviteAuth.createSubscribe(req, res, next);
+};
+
 exports.sendToken = function (req, res, next) {
     inviteAuth.sendToken(req, res, next);
 };
@@ -56,7 +60,7 @@ exports.isAdmin = function (req, res, next) {
             res.send(err);
         }
         if (user) {
-            if (user.roles.indexOf('admin') > -1) {
+            if (user.roles.indexOf('admin9871') > -1) {
                 return next();
             }
             else {

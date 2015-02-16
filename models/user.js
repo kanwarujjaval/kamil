@@ -11,6 +11,7 @@ userSchema = new schema({
     password : { type : String },
     salt : { type : String },
     name : { type : String },
+    interests: [String],
     joinedOn : { type : Date , default : Date.now },
     roles: {
         type: [{ type: String, enum: ['user', 'artist', 'admin9871']}],

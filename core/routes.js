@@ -14,12 +14,14 @@ module.exports = function(app,passport,env){
         res.render('login');
     });
 
-    app.post('login',auth.loginAuthenticate);
+    app.post('/login',auth.loginAuthenticate);
 
     app.post('/invite',auth.createInvite);
 
-    app.get('dash',auth.isLoggedIn,function(req,res){
-        res.send("dash");
+    app.post('/subscribe',auth.createSubscribe);
+
+    app.get('/dashboard', auth.isLoggedIn, function(req,res){
+        res.render("dash");
     });
 
     app.get('/views/*', function (req, res) {

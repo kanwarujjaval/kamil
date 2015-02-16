@@ -14,7 +14,7 @@ inviteSchema = new schema({
     genre: [String],
     music: [String],
     social: [String],
-    location:String,
+    location: String,
     token: {
         type: String,
         required: true,
@@ -25,14 +25,13 @@ inviteSchema = new schema({
         default: ['user']
     },
     invited: {
-        type: Boolean,
-        default: false
+        type: Boolean
     },
     createdOn: {
         type: Date,
         default: Date.now
     },
-    invitationSent: { type: Boolean, default: false },
+    invitationSent: { type: Boolean },
     invitationSentOn: { type: Date },
     signedUpOn: { type: Date }
 });
