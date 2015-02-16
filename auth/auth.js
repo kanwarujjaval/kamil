@@ -38,9 +38,10 @@ exports.loginAuthenticate = function (req, res, next) {
         else {
             req.logIn(user, function (err) {
                 if (err) {
-                    return next(err);
+                    res.send(err);
+                }else {
+                    res.redirect('/dashboard');
                 }
-                res.redirect('/dashboard');
             });
         }
     })
