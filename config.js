@@ -12,7 +12,7 @@ exports.sv = {
     production:{
         ip : process.env.OPENSHIFT_NODEJS_IP,
         port : process.env.OPENSHIFT_NODEJS_PORT,
-        db : process.env.OPENSHIFT_MONGODB_DB_URL + "kamil"
+        db : process.env.OPENSHIFT_MONGODB_DB_URL
     }
 };
 
