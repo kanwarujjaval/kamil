@@ -58,17 +58,31 @@ exports.createInvite = function (req, res, next) {
 
 
 exports.sendToken = function (req, res, next) {
-    inviteModel.findOneAndUpdate({ 'email': req.body.email },
+    inviteModel.findOneAndUpdate({ '_id': req.params.id },
         {'invited': true,'invitationSent':true,'invitationSentOn': Date.now()},function (err, invitedUser) {
         if (err) {
             res.send(err);
         }
         else {
             mailer.sendInviteMail(res, req.body.email, '<p>Your invitation request has been accepted </p>', 'Welcome');
+            res.send(invitedUser);
         }
     });
 };
 
+
+exports.denyToken = function (req, res, next) {
+    inviteModel.findOneAndUpdate({ '_id': req.params.id },
+        {'invited': false},function (err, invitedUser) {
+            if (err) {
+                res.send(err);
+            }
+            else {
+                mailer.sendInviteMail(res, req.body.email, '<p>Your invitation request has been denied </p>', 'Response');
+                res.send(invitedUser);
+            }
+        });
+};
 
 exports.createSubscribe = function (req, res, next) {
     if (validator.isEmail(req.body.email)) {
@@ -85,7 +99,7 @@ exports.createSubscribe = function (req, res, next) {
             else {
                 var newUser = new userModel();
                 newUser.email = req.body.email;
-                newUser.interests = req.body.interests;
+                newUser.interests = spliter(req.body.interests);
                 newUser.save(function (err) {
                     if (err) {
                         res.send(err);

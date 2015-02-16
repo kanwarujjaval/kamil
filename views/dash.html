@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head lang="en">
     <meta charset="UTF-8">
     <title>Dashboard</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.js"></script>
+    <script src="/app.js"></script>
 </head>
-<body>
+<body ng-controller="dash">
 
 
 <nav role="navigation" class="navbar navbar-default">
@@ -24,39 +26,58 @@
     </div>
 </nav>
 
-<div class="col-md-6">
+<div class="col-md-7">
     <div class="content-box-large">
         <div class="panel-heading">
-            <div class="panel-title">Striped Rows</div>
+            <div class="panel-title">Invites</div>
         </div>
         <div class="panel-body">
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
+                    <th>Name</th>
+                    <th>email</th>
+                    <th>social</th>
+                    <th>genre</th>
+                    <th>music</th>
+                    <th>Invite</th>
                 </tr>
                 </thead>
                 <tbody>
+                    <tr ng-repeat="invite in invites">
+                        <td>{{invite.name}}</td>
+                        <td>{{invite.email}}</td>
+                        <td><div ng-repeat="social in invite.social track by $index">{{social}}</div></td>
+                        <td><div ng-repeat="genre in invite.genre track by $index">{{genre}}</div></td>
+                        <td><div ng-repeat="music in invite.music track by $index">{{music}}</div></td>
+                        <td ng-if="invite.invited===true"><i class="fa fa-check-circle">Invited</i></td>
+                        <td ng-if="invite.invited===false"><i class="fa fa-close" >Denied</i></td>
+                        <td ng-if="invite.invited==null"><a class="fa fa-plus-square" href="#" ng-click="accept(invite)">Accept</a> | <a class="fa fa-minus-square" href="#" ng-click="deny(invite)">Deny</a></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-5">
+    <div class="content-box-large">
+        <div class="panel-heading">
+            <div class="panel-title">Subsribers</div>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
                 <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <th>Email</th>
+                    <th>interests</th>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
+                </thead>
+                <tbody>
+                <tr ng-repeat="subscribe in subscribes">
+                    <td>{{subscribe.email}}</td>
+                    <td><div ng-repeat="interest in subscribe.interest track by $index">{{interest}}</div></td>
                 </tr>
                 </tbody>
             </table>

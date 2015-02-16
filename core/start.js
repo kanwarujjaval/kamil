@@ -6,7 +6,7 @@ module.exports = function(){
     var server = require('http').createServer(app);
     var passport = require('passport');
 
-    var env = process.env.NODE_ENV || 'development';
+    var env = process.env.NODE_ENV || 'production';
     var sv = require('../config').sv[env];
 
     require('./express')(app,env);

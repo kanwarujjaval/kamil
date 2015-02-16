@@ -21,6 +21,10 @@ exports.sendToken = function (req, res, next) {
     inviteAuth.sendToken(req, res, next);
 };
 
+exports.denyToken = function (req, res, next) {
+    inviteAuth.denyToken(req, res, next);
+};
+
 exports.loginAuthenticate = function (req, res, next) {
     var auth = passport.authenticate('local-login', function (err, user, info) {
         if (err) {
