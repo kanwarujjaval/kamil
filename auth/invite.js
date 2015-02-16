@@ -64,7 +64,7 @@ exports.sendToken = function (req, res, next) {
             res.send(err);
         }
         else {
-            mailer.sendInviteMail(res, req.body.email, '<p>Your invitation request has been accepted </p>', 'Welcome');
+            mailer.sendInviteMail(res, invitedUser.email, '<p>Your invitation request has been accepted </p>', 'Welcome');
             res.send(invitedUser);
         }
     });
@@ -78,7 +78,7 @@ exports.denyToken = function (req, res, next) {
                 res.send(err);
             }
             else {
-                mailer.sendInviteMail(res, req.body.email, '<p>Your invitation request has been denied </p>', 'Response');
+                mailer.sendInviteMail(res, invitedUser.email, '<p>Your invitation request has been denied </p>', 'Response');
                 res.send(invitedUser);
             }
         });
