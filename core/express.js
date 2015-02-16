@@ -40,7 +40,8 @@ module.exports = function (app,env) {
             cookie: {
                 httpOnly: true,
                 maxAge: 604800000 //7 days
-            }
+            },
+            store: new MongoStore({ mongooseConnection: mongoose.connection })
         }));
         app.use(passport.initialize());
         app.use(passport.session());

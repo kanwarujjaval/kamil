@@ -6,7 +6,7 @@ module.exports = function(){
     var server = require('http').createServer(app);
     var passport = require('passport');
 
-    var env = 'production';
+    var env = process.env.NODE_ENV || 'development';
     var sv = require('../config').sv[env];
 
     require('./mongo')(sv.db);
