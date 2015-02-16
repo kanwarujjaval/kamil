@@ -82,8 +82,8 @@
 						<ul id="header-nav" class="nav navbar-nav">
 							
 							<li><a href="#hero" class="hidden">Top</a></li>
-
-							<li><a href="#about">About</a></li>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="#about">About</a></li>
 							<li><a href="#benefits">Benefits</a></li>
 							<li><a href="#how-it-works">How it Works</a></li>
 							<li><a href="#video">Watch Video</a></li>
@@ -140,6 +140,27 @@
 							<div class="hero-features-left col-md-7">
 
 								<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat arcu ut orci porta, eget porttitor felis suscipit. Sed a nisl ullamcorper, tempus augue at, rutrum lacus.</p>
+
+                                <form action="#" method="post" id="forma" class="form" role="form">
+
+                                    <h4 class="form-heading">Are you user A?</h4>
+
+                                    <div class="form-validation alert"></div>
+
+                                    <div class="form-group">
+                                        <label for="forma-interest">Interests</label>
+                                        <input type="text" name="interest" id="forma-interest" class="form-control" placeholder="What are you looking for?" autocomplete="off">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="forma-email">Email Address</label>
+                                        <input type="email" name="email" id="forma-email" class="form-control" placeholder="Your Valid Email Address" autocomplete="off">
+                                    </div>
+                                    <div class="form-group form-group-submit">
+                                        <button class="btn btn-primary btn-lg btn-block" data-loading-text="Action Button">Subscribe</button>
+                                    </div>
+                                </form>
+
 								<ul class="icon-list">
 									<li>
 										<span class="icon-list-icon fa fa-hand-o-up" data-animation="bounceIn"></span>
@@ -163,9 +184,9 @@
 							<div class="hero-features-right col-md-5" data-animation="fadeIn">
 
 								<!-- FORM -->
-								<form action="" method="post" id="form" class="form" role="form">
+								<form action="/invite" method="post" id="form" class="form" role="form">
 
-									<h4 class="form-heading">Get your Awesome Landing Page Now!</h4>
+									<h4 class="form-heading">Are you user B?</h4>
 
 									<div class="form-validation alert"></div>
 
@@ -233,10 +254,25 @@
 											<option value="Wisconsin">Wisconsin</option>
 											<option value="Wyoming">Wyoming</option>
 										</select>
+                                        <small>*Currently we are only open to artists based in the US</small>
 									</div>
-									
+
+                                    <div class="form-group">
+                                        <label for="form-genre">Genre</label>
+                                        <input type="text" name="genre" id="form-genre" class="form-control" placeholder="Genre" autocomplete="off">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="form-music">Music</label>
+                                        <input type="text" name="music" id="form-music" class="form-control" placeholder="Music" autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="form-social">Social</label>
+                                        <input type="text" name="social" id="form-social" class="form-control" placeholder="Social" autocomplete="off">
+                                    </div>
+
 									<div class="form-group form-group-submit">
-										<button class="btn btn-primary btn-lg btn-block" data-loading-text="Action Button">Action Button</button>
+										<button class="btn btn-primary btn-lg btn-block" data-loading-text="Action Button">Register</button>
 									</div>
 								</form>
 
