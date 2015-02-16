@@ -18,10 +18,10 @@
 		<meta name="description" content="Drew - A Multipurpose Landing Page Template">
 
 		<!-- FAVICONS -->
-		<link rel="icon" href="images/favicons/favicon.ico">
-		<link rel="apple-touch-icon" href="images/favicons/apple-touch-icon.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png">
+		<link rel="icon" href="../public/images/favicons/favicon.ico">
+		<link rel="apple-touch-icon" href="../public/images/favicons/apple-touch-icon.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="../public/images/favicons/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="../public/images/favicons/apple-touch-icon-114x114.png">
 
 		<!-- CSS
 		================================= -->
@@ -31,21 +31,25 @@
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
 
 		<!-- LIBRARIES CSS -->
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/font-awesome.min.css">
-		<link rel="stylesheet" href="css/animate.min.css">
+		<link rel="stylesheet" href="../public/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../public/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../public/css/animate.min.css">
 
 		<!-- SPECIFIC CSS -->
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="../public/css/style.css">
 
 		<!-- COLORS -->
+		<!-- <link rel="stylesheet" href="css/colors/red.css"> -->
 		<!-- <link id="color-css" rel="stylesheet" href="css/colors/pink.css"> -->
 		<!-- <link id="color-css" rel="stylesheet" href="css/colors/red.css"> -->
-		<link id="color-css" rel="stylesheet" href="css/colors/orange.css">
+		<link id="color-css" rel="stylesheet" href="../public/css/colors/orange.css">
 		<!-- <link id="color-css" rel="stylesheet" href="css/colors/yellow.css"> -->
 		<!-- <link id="color-css" rel="stylesheet" href="css/colors/green.css"> -->
 		<!-- <link id="color-css" rel="stylesheet" href="css/colors/turquoise.css"> -->
 		<!-- <link id="color-css" rel="stylesheet" href="css/colors/blue.css"> -->
+		<!-- <link rel="stylesheet" href="css/colors/yellow.css"> -->
+		<!-- <link rel="stylesheet" href="css/colors/green.css"> -->
+		<!-- <link rel="stylesheet" href="css/colors/turquoise.css"> -->
 		
 	</head>
 
@@ -71,7 +75,7 @@
 
 						<!-- HEADER LOGO -->
 						<a class="navbar-logo navbar-brand anchor-link" href="#hero">
-							<img src="images/logos/header-logo.png" srcset="images/logos/header-logo@2x.png 2x" alt="Drew">
+							<img src="../public/images/logos/header-logo.png" srcset="images/logos/header-logo@2x.png 2x" alt="Drew">
 						</a>
 
 					</div>
@@ -103,7 +107,7 @@
 
 			<!-- HERO
 			================================= -->
-			<section id="hero" class="hero-section hero-layout-classic hero-layout-features-and-form section section-dark">
+			<section id="hero" class="hero-section hero-layout-simple hero-fullscreen section section-dark">
 
 				<div class="section-background">
 
@@ -125,128 +129,31 @@
 
 					<div class="hero-content">
 
-						<div class="hero-heading row" data-animation="fadeIn">
+						<div class="row">
 							<div class="col-md-10 col-md-offset-1">
 
-								<h1 class="hero-title">All in One Template</h1>
+								<div class="hero-heading" data-animation="fadeIn">
 
-								<p class="hero-tagline">A robust Landing Page Template which solves all your landing page needs</p>
+									<h1 class="hero-title">All in One Template</h1>
 
-							</div>
-						</div>
+									<p class="hero-tagline">A robust Landing Page Template which solves all your landing page needs</p>
 
-						<div class="hero-features row">
+								</div>
 
-							<div class="hero-features-left col-md-7">
-
-								<p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat arcu ut orci porta, eget porttitor felis suscipit. Sed a nisl ullamcorper, tempus augue at, rutrum lacus.</p>
-								<ul class="icon-list">
-									<li>
-										<span class="icon-list-icon fa fa-hand-o-up" data-animation="bounceIn"></span>
-										<h4 class="icon-list-title">Click Through</h4>
-										<p>Sed a nisl ullamcorper, tempus augue at, rutrum lacus. Duis et turpis eros. Duis ex metus, facilisis nec porta non, accumsan vel turpis.</p>
-									</li>
-									<li>
-										<span class="icon-list-icon fa fa-heart-o" data-animation="bounceIn"></span>
-										<h4 class="icon-list-title">Lead Generation</h4>
-										<p>Sed a nisl ullamcorper, tempus augue at, rutrum lacus. Duis et turpis eros. Duis ex metus, facilisis nec porta non, accumsan vel turpis.</p>
-									</li>
-									<li>
-										<span class="icon-list-icon fa fa-lightbulb-o" data-animation="bounceIn"></span>
-										<h4 class="icon-list-title">Other Purposes</h4>
-										<p>Sed a nisl ullamcorper, tempus augue at, rutrum lacus. Duis et turpis eros. Duis ex metus, facilisis nec porta non, accumsan vel turpis.</p>
-									</li>
-								</ul>
+								<p class="hero-buttons">
+									<a href="#" class="btn btn-lg btn-default">Learn More</a>
+									<a href="#" class="btn btn-lg btn-primary">Action Button</a>
+								</p>
 
 							</div>
-
-							<div class="hero-features-right col-md-5" data-animation="fadeIn">
-
-								<!-- FORM -->
-								<form action="" method="post" id="form" class="form" role="form">
-
-									<h4 class="form-heading">Get your Awesome Landing Page Now!</h4>
-
-									<div class="form-validation alert"></div>
-
-									<div class="form-group">
-										<label for="form-name">Name</label>
-										<input type="text" name="name" id="form-name" class="form-control" placeholder="Your Full Name" autocomplete="off">
-									</div>
-
-									<div class="form-group">
-										<label for="form-email">Email Address</label>
-										<input type="email" name="email" id="form-email" class="form-control" placeholder="Your Valid Email Address" autocomplete="off">
-									</div>
-
-									<div class="form-group">
-										<label for="form-location">Your Location</label>
-										<select name="location" id="form-location" class="form-control" placeholder="Your Location" autocomplete="off">
-											<option value="Alabama">Alabama</option>
-											<option value="Alaska">Alaska</option>
-											<option value="Arizona">Arizona</option>
-											<option value="Arkansas">Arkansas</option>
-											<option value="California">California</option>
-											<option value="Colorado">Colorado</option>
-											<option value="Connecticut">Connecticut</option>
-											<option value="Delaware">Delaware</option>
-											<option value="Florida">Florida</option>
-											<option value="Georgia">Georgia</option>
-											<option value="Hawaii">Hawaii</option>
-											<option value="Idaho">Idaho</option>
-											<option value="Illinois">Illinois</option>
-											<option value="Indiana">Indiana</option>
-											<option value="Iowa">Iowa</option>
-											<option value="Kansas">Kansas</option>
-											<option value="Kentucky">Kentucky</option>
-											<option value="Louisiana">Louisiana</option>
-											<option value="Maine">Maine</option>
-											<option value="Maryland">Maryland</option>
-											<option value="Massachusetts">Massachusetts</option>
-											<option value="Michigan">Michigan</option>
-											<option value="Minnesota">Minnesota</option>
-											<option value="Mississippi">Mississippi</option>
-											<option value="Missouri">Missouri</option>
-											<option value="Montana">Montana</option>
-											<option value="Nebraska">Nebraska</option>
-											<option value="Nevada	Carson">Nevada	Carson</option>
-											<option value="New Hampshire">New Hampshire</option>
-											<option value="New Jersey">New Jersey</option>
-											<option value="New Mexico">New Mexico</option>
-											<option value="New York">New York</option>
-											<option value="North Carolina">North Carolina</option>
-											<option value="North Dakota">North Dakota</option>
-											<option value="Ohio">Ohio</option>
-											<option value="Oklahoma">Oklahoma</option>
-											<option value="Oregon">Oregon</option>
-											<option value="Pennsylvania">Pennsylvania</option>
-											<option value="Rhode Island">Rhode Island</option>
-											<option value="South Carolina">South Carolina</option>
-											<option value="South Dakota">South Dakota</option>
-											<option value="Tennessee">Tennessee</option>
-											<option value="Texas">Texas</option>
-											<option value="Utah">Utah</option>
-											<option value="Vermont">Vermont</option>
-											<option value="Virginia">Virginia</option>
-											<option value="Washington">Washington</option>
-											<option value="West Virginia">West Virginia</option>
-											<option value="Wisconsin">Wisconsin</option>
-											<option value="Wyoming">Wyoming</option>
-										</select>
-									</div>
-									
-									<div class="form-group form-group-submit">
-										<button class="btn btn-primary btn-lg btn-block" data-loading-text="Action Button">Action Button</button>
-									</div>
-								</form>
-
-							</div>
-
 						</div>
 
 					</div>
 
 				</div>
+
+				<!-- HERO START LINK -->
+				<a href="#headline" class="hero-start-link anchor-link"><span class="fa fa-angle-double-down"></span></a>
 
 			</section>
 
@@ -284,7 +191,7 @@
 
 						<!-- DESCRIPTION IMAGE -->
 						<div class="about-image col-md-6" data-animation="fadeIn">
-							<img src="images/contents/about.jpg" alt="Description Image">
+							<img src="../public/images/contents/about.jpg" alt="Description Image">
 						</div>
 
 						<!-- DESCRIPTION TEXT -->
@@ -405,7 +312,7 @@
 						<!-- HOW IT WORKS - ITEM 1 -->
 						<div class="col-md-3 col-sm-6" data-animation="fadeIn">
 							<div class="hiw-item">
-								<img class="hiw-item-picture" src="images/contents/hiw-item-1.jpg" alt="">
+								<img class="hiw-item-picture" src="../public/images/contents/hiw-item-1.jpg" alt="">
 								<div class="hiw-item-text">
 									<span class="hiw-item-icon">1</span>
 									<h4 class="hiw-item-title">Choose a Layout</h4>
@@ -417,7 +324,7 @@
 						<!-- HOW IT WORKS - ITEM 2 -->
 						<div class="col-md-3 col-sm-6" data-animation="fadeIn">
 							<div class="hiw-item even">
-								<img class="hiw-item-picture" src="images/contents/hiw-item-2.jpg" alt="">
+								<img class="hiw-item-picture" src="../public/images/contents/hiw-item-2.jpg" alt="">
 								<div class="hiw-item-text">
 									<span class="hiw-item-icon">2</span>
 									<h4 class="hiw-item-title">Edit &amp; Customize</h4>
@@ -431,7 +338,7 @@
 						<!-- HOW IT WORKS - ITEM 3 -->
 						<div class="col-md-3 col-sm-6" data-animation="fadeIn">
 							<div class="hiw-item">
-								<img class="hiw-item-picture" src="images/contents/hiw-item-3.jpg" alt="">
+								<img class="hiw-item-picture" src="../public/images/contents/hiw-item-3.jpg" alt="">
 								<div class="hiw-item-text">
 									<span class="hiw-item-icon">3</span>
 									<h4 class="hiw-item-title">Upload to Hosting</h4>
@@ -443,7 +350,7 @@
 						<!-- HOW IT WORKS - ITEM 4 -->
 						<div class="col-md-3 col-sm-6" data-animation="fadeIn">
 							<div class="hiw-item even">
-								<img class="hiw-item-picture" src="images/contents/hiw-item-4.jpg" alt="">
+								<img class="hiw-item-picture" src="../public/images/contents/hiw-item-4.jpg" alt="">
 								<div class="hiw-item-text">
 									<span class="hiw-item-icon">4</span>
 									<h4 class="hiw-item-title">Finished!</h4>
@@ -553,7 +460,7 @@
 						<!-- TEAM MEMBER 1 -->
 						<div class="col-lg-2 col-md-4 col-sm-6" data-animation="fadeIn">
 							<div class="team-member">
-								<img class="team-member-picture" src="images/contents/team-member-1.jpg" alt="">
+								<img class="team-member-picture" src="../public/images/contents/team-member-1.jpg" alt="">
 								<div class="team-member-text">
 									<h4 class="team-member-name">Jason Castillo</h4>
 									<div class="team-member-position">CEO &amp; Co-Founder</div>
@@ -565,7 +472,7 @@
 						<!-- TEAM MEMBER 2 -->
 						<div class="col-lg-2 col-md-4 col-sm-6" data-animation="fadeIn">
 							<div class="team-member even">
-								<img class="team-member-picture" src="images/contents/team-member-2.jpg" alt="">
+								<img class="team-member-picture" src="../public/images/contents/team-member-2.jpg" alt="">
 								<div class="team-member-text">
 									<h4 class="team-member-name">Harold Kelly</h4>
 									<div class="team-member-position">CTO &amp; Co-Founder</div>
@@ -579,7 +486,7 @@
 						<!-- TEAM MEMBER 3 -->
 						<div class="col-lg-2 col-md-4 col-sm-6" data-animation="fadeIn">
 							<div class="team-member">
-								<img class="team-member-picture" src="images/contents/team-member-3.jpg" alt="">
+								<img class="team-member-picture" src="../public/images/contents/team-member-3.jpg" alt="">
 								<div class="team-member-text">
 									<h4 class="team-member-name">Kathy Nelson</h4>
 									<div class="team-member-position">Graphic Designer</div>
@@ -593,7 +500,7 @@
 						<!-- TEAM MEMBER 4 -->
 						<div class="col-lg-2 col-md-4 col-sm-6" data-animation="fadeIn">
 							<div class="team-member even">
-								<img class="team-member-picture" src="images/contents/team-member-4.jpg" alt="">
+								<img class="team-member-picture" src="../public/images/contents/team-member-4.jpg" alt="">
 								<div class="team-member-text">
 									<h4 class="team-member-name">Dylan Fowler</h4>
 									<div class="team-member-position">UI/UX Designer</div>
@@ -607,7 +514,7 @@
 						<!-- TEAM MEMBER 5 -->
 						<div class="col-lg-2 col-md-4 col-sm-6" data-animation="fadeIn">
 							<div class="team-member">
-								<img class="team-member-picture" src="images/contents/team-member-5.jpg" alt="">
+								<img class="team-member-picture" src="../public/images/contents/team-member-5.jpg" alt="">
 								<div class="team-member-text">
 									<h4 class="team-member-name">Carolyn Harvey</h4>
 									<div class="team-member-position">Development</div>
@@ -619,7 +526,7 @@
 						<!-- TEAM MEMBER 6 -->
 						<div class="col-lg-2 col-md-4 col-sm-6" data-animation="fadeIn">
 							<div class="team-member even">
-								<img class="team-member-picture" src="images/contents/team-member-6.jpg" alt="">
+								<img class="team-member-picture" src="../public/images/contents/team-member-6.jpg" alt="">
 								<div class="team-member-text">
 									<h4 class="team-member-name">Diane Grant</h4>
 									<div class="team-member-position">Marketing &amp; Strategy</div>
@@ -779,10 +686,10 @@
 					<h2 class="section-heading text-center">Trusted by Thousands</h2>
 
 					<div class="sponsors-row" data-animation="bounceIn">
-						<img src="images/contents/sponsor-1.png" alt="">
-						<img src="images/contents/sponsor-2.png" alt="">
-						<img src="images/contents/sponsor-3.png" alt="">
-						<img src="images/contents/sponsor-4.png" alt="">
+						<img src="../public/images/contents/sponsor-1.png" alt="">
+						<img src="../public/images/contents/sponsor-2.png" alt="">
+						<img src="../public/images/contents/sponsor-3.png" alt="">
+						<img src="../public/images/contents/sponsor-4.png" alt="">
 					</div>
 
 					<div class="testimonial-row row">
@@ -855,7 +762,7 @@
 				<div class="container">
 
 					<h3 class="footer-logo">
-						<img src="images/logos/footer-logo.png" srcset="images/logos/footer-logo@2x.png 2x" alt="Drew">
+						<img src="../public/images/logos/footer-logo.png" srcset="images/logos/footer-logo@2x.png 2x" alt="Drew">
 					</h3>
 
 					<div class="footer-socmed">
@@ -877,16 +784,16 @@
 
 		<!-- JAVASCRIPT
 		================================= -->
-		<script src="js/jquery-1.11.2.min.js"></script>
-		<script src="js/picturefill.min.js"></script>
-		<script src="js/jpreloader.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/smoothscroll.min.js"></script>
-		<script src="js/jquery.nav.min.js"></script>
-		<script src="js/jquery.inview.min.js"></script>
-		<script src="js/jquery.counterup.min.js"></script>
-		<script src="js/jquery.stellar.min.js"></script>
-		<script src="js/script.js"></script>
+		<script src="../public/js/jquery-1.11.2.min.js"></script>
+		<script src="../public/js/picturefill.min.js"></script>
+		<script src="../public/js/jpreloader.min.js"></script>
+		<script src="../public/js/bootstrap.min.js"></script>
+		<script src="../public/js/smoothscroll.min.js"></script>
+		<script src="../public/js/jquery.nav.min.js"></script>
+		<script src="../public/js/jquery.inview.min.js"></script>
+		<script src="../public/js/jquery.counterup.min.js"></script>
+		<script src="../public/js/jquery.stellar.min.js"></script>
+		<script src="../public/js/script.js"></script>
 		
 	</body>
 
