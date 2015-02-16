@@ -14,6 +14,7 @@ var session = require('express-session');
 var bodyparser = require('body-parser');
 var errorhandler = require('errorhandler');
 var MongoStore = require('connect-mongo')(session);
+var mongoose = require('mongoose');
 
 var path = require("../config").paths;
 
@@ -71,7 +72,7 @@ module.exports = function (app,env) {
                 secure: true,
                 maxAge: 604800000
             },
-            store:new MongoStore({ mongooseConnection: connection })
+            store: new MongoStore({ mongooseConnection: mongoose.connection })
         }));
         app.use(passport.initialize());
         app.use(passport.session());

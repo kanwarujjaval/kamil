@@ -9,8 +9,8 @@ module.exports = function(){
     var env = 'production';
     var sv = require('../config').sv[env];
 
-    require('./express')(app,env);
     require('./mongo')(sv.db);
+    require('./express')(app,env);
     require('./routes')(app,passport,env);
 
     server.listen(sv.port,sv.ip,function(){
