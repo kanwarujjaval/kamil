@@ -5,7 +5,7 @@ var config = require("../config");
 var auth = require("../auth/auth");
 var api = require("./api");
 
-module.exports = function(app,passport,env){
+module.exports = function(app){
 
     app.get('/', function(req,res){
         res.render('layout-fullscreen-subscription-form');

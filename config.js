@@ -2,6 +2,10 @@
  * Created by KanwarUjjaval on 05-02-2015.
  */
 var path = require('path');
+var argv = require('optimist').argv;
+
+var ip = argv.ip;
+var db = argv.db;
 
 exports.sv = {
     development:{
@@ -10,9 +14,9 @@ exports.sv = {
         db : "mongodb://localhost:27017/" + "kamil"
     },
     production:{
-        ip : process.env.OPENSHIFT_NODEJS_IP,
-        port : process.env.OPENSHIFT_NODEJS_PORT,
-        db : process.env.OPENSHIFT_MONGODB_DB_URL
+        ip: ip ,
+        port : 80,
+        db : 'mongodb://' + db + ':80/kamil'
     }
 };
 
