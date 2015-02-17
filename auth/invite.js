@@ -34,6 +34,7 @@ exports.createInvite = function (req, res, next) {
                 newInvite.music = spliter(req.body.music);
                 newInvite.social = spliter(req.body.social);
                 newInvite.location = req.body.location;
+                newInvite.website = req.body.website;
                 newInvite.token = newInvite.genToken();
                 newInvite.save(function (err) {
                     if (err) {
@@ -98,8 +99,8 @@ exports.createSubscribe = function (req, res, next) {
             }
             else {
                 var newUser = new userModel();
-                newUser.email = req.body.email;
                 newUser.interests = spliter(req.body.interests);
+                newUser.email = req.body.email;
                 newUser.save(function (err) {
                     if (err) {
                         res.send(err);

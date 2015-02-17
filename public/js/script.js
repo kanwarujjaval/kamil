@@ -3,9 +3,11 @@
 
 	$( document ).on( 'ready', function() {
 
-		var drew = {
-			headerFloatingHeight : 60,
-		};
+		var $window = $( window ),
+		    $body = $( 'body' ),
+		    drew = {
+		    	headerFloatingHeight : 60,
+		    };
 
 		/**
 		 * =======================================
@@ -41,30 +43,30 @@
 		 */
 		var resizeBackground = function() {
 
-			$( '.section-background-video > video' ).each(function( i, el ) {
+			$( '.section-background video, .section-background img, .two-cols-description-image img' ).each(function( i, el ) {
 				var $el       = $( el ),
 				    $section  = $el.parent(),
 				    min_w     = 300,
-				    video_w   = 16,
-				    video_h   = 9,
+				    el_w      = el.tagName == 'VIDEO' ? el.videoWidth : el.naturalWidth,
+				    el_h      = el.tagName == 'VIDEO' ? el.videoHeight : el.naturalHeight,
 				    section_w = $section.outerWidth(),
 				    section_h = $section.outerHeight(),
-				    scale_w   = section_w / video_w,
-				    scale_h   = section_h / video_h,
+				    scale_w   = section_w / el_w,
+				    scale_h   = section_h / el_h,
 				    scale     = scale_w > scale_h ? scale_w : scale_h,
-				    new_video_w, new_video_h, offet_top, offet_left;
+				    new_el_w, new_el_h, offet_top, offet_left;
 
-				if ( scale * video_w < min_w ) {
-					scale = min_w / video_w;
+				if ( scale * el_w < min_w ) {
+					scale = min_w / el_w;
 				};
 
-				new_video_w = scale * video_w;
-				new_video_h = scale * video_h;
-				offet_left = ( new_video_w - section_w ) / 2 * -1;
-				offet_top  = ( new_video_h - section_h ) / 2 * -1;
+				new_el_w = scale * el_w;
+				new_el_h = scale * el_h;
+				offet_left = ( new_el_w - section_w ) / 2 * -1;
+				offet_top  = ( new_el_h - section_h ) / 2 * -1;
 
-				$el.css( 'width', new_video_w );
-				$el.css( 'height', new_video_h );
+				$el.css( 'width', new_el_w );
+				$el.css( 'height', new_el_h );
 				$el.css( 'marginTop', offet_top );
 				$el.css( 'marginLeft', offet_left );
 			});
@@ -78,24 +80,21 @@
 		 */
 		if ( isMobile.any() ) {
 			// add identifier class to <body>
-			$( 'body' ).addClass( 'mobile-device' );
+			$body.addClass( 'mobile-device' );
 			// remove all element with class "remove-on-mobile-device"
 			$( '.remove-on-mobile-device' ).remove();
 		};
 
 		/* =======================================
-		 * Preloader
+		 * Slideshow Background
 		 * =======================================
 		 */
-		if ( $.fn.jpreLoader && $( 'body' ).hasClass( 'enable-preloader' ) ) {
-			var $body = $( 'body' );
-
-			$body.jpreLoader({
-				showSplash : false,
-				// autoClose : false,
-			}, function() {
-				$body.addClass( 'done-preloader' );
-				$( window ).trigger( 'resize' );
+		if ( $.fn.responsiveSlides ) {
+			$body.on( 'pageStart', function() {
+				$( '.section-background-slideshow' ).responsiveSlides({
+					speed : $( this ).data( 'speed' ) ? $( this ).data( 'speed' ) : 800,
+					timeout : $( this ).data( 'timeout' ) ? $( this ).data( 'timeout' ) : 4000,
+				});
 			});
 		};
 
@@ -103,7 +102,7 @@
 		 * Video Embed Async Load
 		 * =======================================
 		 */
-		$( window ).on( 'load', function() {
+		$body.on( 'pageStart', function() {
 			$( '.video-async' ).each( function( i, el ) {
 				var $el = $( el ),
 				    source = $el.data( 'source' ),
@@ -123,10 +122,9 @@
 		 * Resize Video Background
 		 * =======================================
 		 */
-		$( window ).on( 'resize', function() {
+		$window.on( 'resize', function() {
 			resizeBackground();
 		});
-		resizeBackground();
 		/**
 		 * =======================================
 		 * Initiate Stellar JS
@@ -160,15 +158,14 @@
 		 */
 		var toggleHeaderFloating = function() {
 			// Floating Header
-			if ( $( window ).scrollTop() > 80 ) {
+			if ( $window.scrollTop() > 80 ) {
 				$( '.header-section' ).addClass( 'floating' );
 			} else {
 				$( '.header-section' ).removeClass( 'floating' );
 			};
 		};
 
-		$( window ).on( 'scroll', toggleHeaderFloating );
-		toggleHeaderFloating();
+		$window.on( 'scroll', toggleHeaderFloating );
 
 		/**
 		 * =======================================
@@ -178,6 +175,9 @@
 		if ( $.fn.onePageNav ) {
 			$( '#header-nav' ).onePageNav({
 				scrollSpeed : 1000,
+				begin : function() {
+					$( '#navigation' ).collapse( 'toggle' );
+				},
 			});
 		};
 
@@ -186,7 +186,7 @@
 		 * Animations
 		 * =======================================
 		 */
-		if ( $( 'body' ).hasClass( 'enable-animations' ) && ! isMobile.any() ) {
+		if ( $body.hasClass( 'enable-animations' ) && ! isMobile.any() ) {
 			var $elements = $( '*[data-animation]' );
 
 			$elements.each( function( i, el ) {
@@ -210,7 +210,7 @@
 		 * Anchor Link
 		 * =======================================
 		 */
-		$( 'body' ).on( 'click', 'a.anchor-link', function( e ) {
+		$body.on( 'click', 'a.anchor-link', function( e ) {
 			e.preventDefault();
 
 			var $a = $( this ),
@@ -218,8 +218,35 @@
 
 			if ( $target.length < 1 ) return;
 
-			$( 'html, body' ).animate({ scrollTop: $target.offset().top }, 1000 );
+			$( 'html, body' ).animate({ scrollTop: Math.max( 0, $target.offset().top - drew.headerFloatingHeight ) }, 1000 );
 		});
+
+		/**
+		 * =======================================
+		 * Google Maps
+		 * =======================================
+		 */
+		if ( typeof Maplace == 'function' && $( '#gmap' ) ) {
+			new Maplace( gmap_options ).Load();
+		};
+
+		/**
+		 * =======================================
+		 * Countdown
+		 * =======================================
+		 */
+		if ( $.fn.countdown ) {
+			$( '.countdown' ).each( function( i, el ) {
+				var $el = $ ( el ),
+				    date = $el.data( 'countdown' ),
+				    format = $el.html();
+
+				$el.countdown( date, function( e ) {
+					$( el ).html( e.strftime( format ) );
+				});
+				$el.show();
+			});
+		};
 
 		/**
 		 * =======================================
@@ -276,8 +303,32 @@
 						},
 					})
 				});
-			}
+			};
 		});
+
+		/* =======================================
+		 * Preloader
+		 * =======================================
+		 */
+		if ( $.fn.jpreLoader && $body.hasClass( 'enable-preloader' ) ) {
+
+			$body.jpreLoader({
+				showSplash : false,
+				// autoClose : false,
+			}, function() {
+				$body.trigger( 'pageStart' );
+			});
+
+			$body.on( 'pageStart', function() {
+				$body.addClass( 'done-preloader' );
+			});
+
+		} else {
+			$body.trigger( 'pageStart' );
+		};
+
+		$window.trigger( 'resize' );
+		$window.trigger( 'scroll' );
 
 	});
 

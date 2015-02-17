@@ -26,7 +26,7 @@
     </div>
 </nav>
 
-<div class="col-md-7">
+<div class="col-md-8">
     <div class="content-box-large">
         <div class="panel-heading">
             <div class="panel-title">Invites</div>
@@ -37,6 +37,8 @@
                 <tr>
                     <th>Name</th>
                     <th>email</th>
+                    <th>Website</th>
+                    <th>Location</th>
                     <th>social</th>
                     <th>genre</th>
                     <th>music</th>
@@ -47,6 +49,8 @@
                     <tr ng-repeat="invite in invites">
                         <td>{{invite.name}}</td>
                         <td>{{invite.email}}</td>
+                        <td>{{invite.website}}</td>
+                        <td>{{invite.location}}</td>
                         <td><div ng-repeat="social in invite.social track by $index">{{social}}</div></td>
                         <td><div ng-repeat="genre in invite.genre track by $index">{{genre}}</div></td>
                         <td><div ng-repeat="music in invite.music track by $index">{{music}}</div></td>
@@ -61,7 +65,7 @@
     </div>
 </div>
 
-<div class="col-md-5">
+<div class="col-md-4">
     <div class="content-box-large">
         <div class="panel-heading">
             <div class="panel-title">Subsribers</div>
@@ -77,7 +81,7 @@
                 <tbody>
                 <tr ng-repeat="subscribe in subscribes">
                     <td>{{subscribe.email}}</td>
-                    <td><div ng-repeat="interest in subscribe.interest track by $index">{{interest}}</div></td>
+                    <td><div ng-repeat="interest in subscribe.interests track by $index">{{interest}}</div></td>
                 </tr>
                 </tbody>
             </table>

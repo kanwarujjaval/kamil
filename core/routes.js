@@ -8,7 +8,7 @@ var api = require("./api");
 module.exports = function(app,passport,env){
 
     app.get('/', function(req,res){
-        res.render('features-and-form');
+        res.render('layout-fullscreen-subscription-form');
     });
 
     app.get('/login', function(req,res){

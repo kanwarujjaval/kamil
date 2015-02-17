@@ -15,6 +15,7 @@ inviteSchema = new schema({
     music: [String],
     social: [String],
     location: String,
+    website: String,
     token: {
         type: String,
         required: true,

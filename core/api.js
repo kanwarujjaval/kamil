@@ -5,7 +5,7 @@ var inviteModel = require('../models/invite').inviteModel;
 var userModel = require('../models/user').userModel;
 
 exports.getSubscribes = function(req,res){
-    userModel.find({}, function (err, users) {
+    userModel.find({roles:['user']}, function (err, users) {
         if (err) {
             res.send(err);
         }
