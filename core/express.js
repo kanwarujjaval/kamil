@@ -70,7 +70,6 @@ module.exports = function (app,env) {
             resave: true,
             cookie: {
                 httpOnly: true,
-                secure: true,
                 maxAge: 604800000
             },
             store: new MongoStore({ mongooseConnection: mongoose.connection })
