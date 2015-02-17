@@ -3,6 +3,7 @@
  */
 var inviteModel = require('../models/invite').inviteModel;
 var userModel = require('../models/user').userModel;
+var mailer = require("../service/mailer.js");
 
 exports.getSubscribes = function(req,res){
     userModel.find({roles:['user']}, function (err, users) {
@@ -35,5 +36,13 @@ exports.getInvites = function(req,res){
         else {
             res.send(users);
         }
+    });
+};
+
+exports.contact = function(req,res){
+    var text = '<p>'+ req.body.text +'</p>';
+    mailer.sendContactMail(res,req.body.email,req.body.name,text,"TraqHound Contact Message");
+    res.render('msg',{
+        msg:"Your Message has been sent!"
     });
 };

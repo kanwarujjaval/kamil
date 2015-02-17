@@ -19,6 +19,8 @@ module.exports = function(app){
 
     app.post('/invite',auth.createInvite);
 
+    app.post('/contact',api.contact);
+
     app.post('/subscribe',auth.createSubscribe);
 
     app.get('/invites',auth.isLoggedIn,api.getInvites);

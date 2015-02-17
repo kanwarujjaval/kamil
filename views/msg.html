@@ -12,16 +12,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- BASIC INFO -->
-    <title>Drew - A Multipurpose Landing Page Template</title>
-    <meta name="author" content="David Rozando">
-    <meta name="keywords" content="responsive, parallax, bootstrap, html5 template, one page, landing page">
-    <meta name="description" content="Drew - A Multipurpose Landing Page Template">
+    <title>TraqHound - The Ultimate 360 Fan Experience</title>
 
     <!-- FAVICONS -->
-    <link rel="icon" href="/images/favicons/favicon.ico">
-    <link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicons/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicons/apple-touch-icon-114x114.png">
+    <link rel="icon" href="/images/favicons/ico.png">
 
     <!-- CSS
     ================================= -->
@@ -39,13 +33,13 @@
     <link rel="stylesheet" href="/css/style.css">
 
     <!-- COLORS -->
-    <!-- <link id="color-css" rel="stylesheet" href="/css/colors/pink.css"> -->
-    <!-- <link id="color-css" rel="stylesheet" href="/css/colors/red.css"> -->
-    <link id="color-css" rel="stylesheet" href="/css/colors/orange.css">
-    <!-- <link id="color-css" rel="stylesheet" href="/css/colors/yellow.css"> -->
-    <!-- <link id="color-css" rel="stylesheet" href="/css/colors/green.css"> -->
-    <!-- <link id="color-css" rel="stylesheet" href="/css/colors/turquoise.css"> -->
-    <!-- <link id="color-css" rel="stylesheet" href="/css/colors/blue.css"> -->
+    <!-- <link id="color-css" rel="stylesheet" href="css/colors/pink.css"> -->
+    <!-- <link id="color-css" rel="stylesheet" href="css/colors/red.css"> -->
+    <!--<link id="color-css" rel="stylesheet" href="css/colors/orange.css">-->
+    <!-- <link id="color-css" rel="stylesheet" href="css/colors/yellow.css"> -->
+    <!-- <link id="color-css" rel="stylesheet" href="css/colors/green.css"> -->
+    <!-- <link id="color-css" rel="stylesheet" href="css/colors/turquoise.css"> -->
+    <link id="color-css" rel="stylesheet" href="css/colors/blue.css">
 
 </head>
 
@@ -53,23 +47,64 @@
 
 <div id="document" class="document">
 
-    <!-- HEADLINE
+    <!-- HEADER
     ================================= -->
-    <section id="headline" class="headline-section section-gray section">
+    <header id="header" class="header-section section section-dark navbar navbar-default navbar-fixed-top">
+
+        <div class="container-fluid">
+
+            <div class="navbar-header navbar-left">
+
+                <!-- RESPONSIVE MENU BUTTON -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <!-- HEADER LOGO -->
+                <a class="navbar-logo navbar-brand anchor-link" href="#hero">
+                    <img src="images/logo.png" alt="TraqHound">
+                </a>
+
+            </div>
+
+            <nav id="navigation" class="navigation navbar-collapse collapse navbar-right">
+
+                <!-- NAVIGATION LINKS -->
+                <ul id="header-nav" class="nav navbar-nav">
+
+                    <li><a href="#hero" class="hidden">Top</a></li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <section id="about" class="headline-section section-gray section">
 
         <div class="container">
-
-            <h2 class="section-heading text-center hidden">Tagline</h2>
 
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
 
-                    <p class="headline-text">
+                    <p class="lead text-center"><br/><br/>
                         <%= msg %>
-                        <br/>
-                    <a href="/">Home</a>
                     </p>
 
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1">
+                            <div class="closing-buttons" data-animation="tada"><a href="/" class="btn btn-lg btn-primary">Home</a></div>
+                        </div>
+                        <div class="col-md-5 col-md-offset-1">
+                            <div class="closing-buttons" data-animation="tada"><a href="/dashboard" class="btn btn-lg btn-primary">Dashboard</a></div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -79,6 +114,7 @@
     </section>
 
 
+
     <!-- FOOTER
     ================================= -->
     <section id="footer" class="footer-section section">
@@ -86,18 +122,11 @@
         <div class="container">
 
             <h3 class="footer-logo">
-                <img src="/images/logos/footer-logo.png" srcset="images/logos/footer-logo@2x.png 2x" alt="Drew">
+                <img style="height: 75px;" src="/images/logof.png" alt="TraqHound">
             </h3>
 
-            <div class="footer-socmed">
-                <a href="#" target="_blank"><span class="fa fa-facebook"></span></a>
-                <a href="#" target="_blank"><span class="fa fa-twitter"></span></a>
-                <a href="#" target="_blank"><span class="fa fa-instagram"></span></a>
-                <a href="#" target="_blank"><span class="fa fa-pinterest"></span></a>
-            </div>
-
             <div class="footer-copyright">
-                &copy; 2015 Drew Landing Page
+                &copy; 2015 TraqHound
             </div>
 
         </div>
@@ -108,16 +137,17 @@
 
 <!-- JAVASCRIPT
 ================================= -->
-<script src="/js/jquery-1.11.2.min.js"></script>
-<script src="/js/picturefill.min.js"></script>
-<script src="/js/jpreloader.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/smoothscroll.min.js"></script>
-<script src="/js/jquery.nav.min.js"></script>
-<script src="/js/jquery.inview.min.js"></script>
-<script src="/js/jquery.counterup.min.js"></script>
-<script src="/js/jquery.stellar.min.js"></script>
-<script src="/js/script.js"></script>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/respimage.min.js"></script>
+<script src="js/jpreloader.min.js"></script>
+<script src="js/smoothscroll.min.js"></script>
+<script src="js/jquery.nav.min.js"></script>
+<script src="js/jquery.inview.min.js"></script>
+<script src="js/jquery.counterup.min.js"></script>
+<script src="js/jquery.stellar.min.js"></script>
+<!--<script src="js/maplace-0.1.3.min.js"></script>-->
+<script src="js/script.js"></script>
 
 </body>
 
