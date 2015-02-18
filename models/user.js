@@ -39,7 +39,7 @@ User.find({ 'username': 'admin' }).exec(function (err, collection) {
     if (collection.length === 0) {
         var salt, hash;
         salt = bcrypt.genSaltSync(10);
-        hash = bcrypt.hashSync('password', salt);
+        hash = bcrypt.hashSync('EP34Ubz22}35s@l', salt);
         User.create({
             email:'admin@admin.com',
             username:'admin',
