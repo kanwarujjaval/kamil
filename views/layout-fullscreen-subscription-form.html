@@ -467,41 +467,23 @@
         <div class="container">
 
             <h2 class="section-heading text-center">Calculator</h2>
+            <div class="col-md-6 col-md-offset-3" data-animation="fadeIn">
+                <form id="calculator" class="form" role="form">
 
-            <div class="numbers-row row">
+                    <div class="form-validation alert"></div>
 
-                <!-- NUMBERS - ITEM 1 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="numbers-item">
-                        <div class="numbers-item-counter"><span class="counter-up">1,269</span></div>
-                        <div class="numbers-item-caption">Tickets solved</div>
+                    <div class="form-group">
+                        <label for="form-name">Name</label>
+                        <input type="text" id="calc-money" class="form-control" placeholder="Enter Monthly value (Minimum 100$)" autocomplete="off">
                     </div>
-                </div>
-
-                <!-- NUMBERS - ITEM 2 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="numbers-item">
-                        <div class="numbers-item-counter"><span class="counter-up">99.8</span>%</div>
-                        <div class="numbers-item-caption">User Ratings</div>
+                    <div class="form-group">
+                        <label for="form-name">Name</label>
+                        <input type="text" id="payment" class="form-control" name="Payment" value="" readonly />
                     </div>
-                </div>
-
-                <!-- NUMBERS - ITEM 3 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="numbers-item">
-                        <div class="numbers-item-counter"><span class="counter-up">754</span>k</div>
-                        <div class="numbers-item-caption">Total Users</div>
+                    <div class="form-group form-group-submit">
+                        <button id="calculate-btn" class="btn btn-primary btn-lg" data-loading-text="calc">Calculate</button>
                     </div>
-                </div>
-
-                <!-- NUMBERS - ITEM 4 -->
-                <div class="col-md-3 col-sm-6">
-                    <div class="numbers-item">
-                        <div class="numbers-item-counter"><span class="counter-up">358</span> <span class="fa fa-coffee"></span></div>
-                        <div class="numbers-item-caption">Coffee Served</div>
-                    </div>
-                </div>
-
+                </form>
             </div>
 
         </div>
@@ -649,7 +631,19 @@
 <script src="js/jquery.stellar.min.js"></script>
 <!--<script src="js/maplace-0.1.3.min.js"></script>-->
 <script src="js/script.js"></script>
-
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(document).on('submit', '#calculator', function(e) {
+            e.preventDefault();
+            var money,fin;
+            money = $('#calc-money').val();
+            console.log(money);
+            fin =((0.03*parseFloat(money))*4.99);
+            console.log(fin);
+            $('#payment').val(fin.toFixed(2));
+        });
+    });
+</script>
 </body>
 
 </html>
