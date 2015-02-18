@@ -5,6 +5,7 @@ var inviteModel = require('../models/invite.js').inviteModel;
 var userModel = require('../models/user.js').userModel;
 var validator = require("validator");
 var mailer = require("../service/mailer.js");
+var api = require('../core/api');
 
 var spliter = function(data){
     data = data.split(",");
@@ -66,6 +67,7 @@ exports.sendToken = function (req, res, next) {
         }
         else {
             mailer.sendInviteMail(res, invitedUser.email, '<p>Your invitation request has been accepted </p>', 'Welcome');
+            api.saveInvites(true);
             res.send(invitedUser);
         }
     });
@@ -80,6 +82,7 @@ exports.denyToken = function (req, res, next) {
             }
             else {
                 mailer.sendInviteMail(res, invitedUser.email, '<p>Your invitation request has been denied </p>', 'Response');
+                api.saveInvites(false);
                 res.send(invitedUser);
             }
         });
@@ -107,6 +110,7 @@ exports.createSubscribe = function (req, res, next) {
                     }
                     else {
                         mailer.sendInviteMail(res, req.body.email, '<p>Hello<br/>Your request for subscription has been confirmed!</p>', 'Welcome');
+                        api.saveSubscribes();
                         res.render('msg',{
                             msg:"You are now subscribed!"
                         });
