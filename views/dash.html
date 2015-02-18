@@ -72,13 +72,14 @@
                 </thead>
                 <tbody>
 
+                    <tr ng-repeat="invite in invites" ng-if="invite.invited==null">
                         <td>{{invite.name}}</td>
                         <td>{{invite.email}}</td>
-                        <td><a href="{{invite.website}}">{{invite.website}}</a></td>
+                        <td><a href="http://{{invite.website}}">{{invite.website}}</a></td>
                         <td>{{invite.location}}</td>
-                        <td><div ng-repeat="social in invite.social track by $index"><a href="{{social}}">{{social}}</a></div></td>
+                        <td><div ng-repeat="social in invite.social track by $index"><a href="http://{{social}}">{{social}}</a></div></td>
                         <td><div ng-repeat="genre in invite.genre track by $index">{{genre}}</div></td>
-                        <td><div ng-repeat="music in invite.music track by $index"><a href="{{music}}">{{music}}</a></div></td>
+                        <td><div ng-repeat="music in invite.music track by $index"><a href="http://{{music}}">{{music}}</a></div></td>
                         <td ng-if="invite.invited===true"><i class="fa fa-check-circle">Invited</i></td>
                         <td ng-if="invite.invited===false"><i class="fa fa-close" >Denied</i></td>
                         <td ng-if="invite.invited==null"><a class="fa fa-plus-square" href="#" ng-click="accept(invite)">Accept</a> | <a class="fa fa-minus-square" href="#" ng-click="deny(invite)">Deny</a></td>
@@ -113,11 +114,11 @@
                 <tr ng-repeat="invite in invites | filter:{invited:true}">
                     <td>{{invite.name}}</td>
                     <td>{{invite.email}}</td>
-                    <td><a href="{{invite.website}}">{{invite.website}}</a></td>
+                    <td><a href="http://{{invite.website}}">{{invite.website}}</a></td>
                     <td>{{invite.location}}</td>
-                    <td><div ng-repeat="social in invite.social track by $index"><a href="{{social}}">{{social}}</a></div></td>
+                    <td><div ng-repeat="social in invite.social track by $index"><a href="http://{{social}}">{{social}}</a></div></td>
                     <td><div ng-repeat="genre in invite.genre track by $index">{{genre}}</div></td>
-                    <td><div ng-repeat="music in invite.music track by $index"><a href="{{music}}">{{music}}</a></div></td>
+                    <td><div ng-repeat="music in invite.music track by $index"><a href="http://{{music}}">{{music}}</a></div></td>
                     <td ng-if="invite.invited===true"><i class="fa fa-check-circle">Invited</i></td>
                     <td ng-if="invite.invited===false"><i class="fa fa-close" >Denied</i></td>
                     <td ng-if="invite.invited==null"><a class="fa fa-plus-square" href="#" ng-click="accept(invite)">Accept</a> | <a class="fa fa-minus-square" href="#" ng-click="deny(invite)">Deny</a></td>
@@ -152,11 +153,11 @@
                 <tr ng-repeat="invite in invites | filter:{invited:false}">
                     <td>{{invite.name}}</td>
                     <td>{{invite.email}}</td>
-                    <td><a href="{{invite.website}}">{{invite.website}}</a></td>
+                    <td><a href="http://{{invite.website}}">{{invite.website}}</a></td>
                     <td>{{invite.location}}</td>
-                    <td><div ng-repeat="social in invite.social track by $index"><a href="{{social}}">{{social}}</a></div></td>
+                    <td><div ng-repeat="social in invite.social track by $index"><a href="http://{{social}}">{{social}}</a></div></td>
                     <td><div ng-repeat="genre in invite.genre track by $index">{{genre}}</div></td>
-                    <td><div ng-repeat="music in invite.music track by $index"><a href="{{music}}">{{music}}</a></div></td>
+                    <td><div ng-repeat="music in invite.music track by $index"><a href="http://{{music}}">{{music}}</a></div></td>
                     <td ng-if="invite.invited===true"><i class="fa fa-check-circle">Invited</i></td>
                     <td ng-if="invite.invited===false"><i class="fa fa-close" >Denied</i></td>
                     <td ng-if="invite.invited==null"><a class="fa fa-plus-square" href="#" ng-click="accept(invite)">Accept</a> | <a class="fa fa-minus-square" href="#" ng-click="deny(invite)">Deny</a></td>
