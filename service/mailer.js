@@ -59,7 +59,7 @@ exports.sendContactMail = function (res, email, name,messageHtml, messageSubject
         "from_email": email,
         "from_name": 'TraqHound' + name,
         "to": [{
-            "email": "ujjavalkanwar@gmail.com", //traqhound
+            "email": "traqhound@gmail.com", //traqhound
             "name": "TraqHound",
             "type": "to"
         }],
