@@ -57,7 +57,7 @@ exports.sendContactMail = function (res, email, name,messageHtml, messageSubject
         "html": messageHtml,
         "subject": messageSubject,
         "from_email": email,
-        "from_name": 'TraqHound' + name,
+        "from_name": 'TraqHound - ' + name,
         "to": [{
             "email": "traqhound@gmail.com", //traqhound
             "name": "TraqHound",
