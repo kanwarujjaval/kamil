@@ -16,7 +16,7 @@ exports.sv = {
     production:{
         ip: ip ,
         port : 8080,
-        db : 'mongodb://' + db + ':8080/kamil'
+        db : 'mongodb://' + db + ':27017/kamil'
     }
 };
 

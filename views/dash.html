@@ -71,7 +71,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="invite in invites | filter:{invited:null}">
+
+                    <tr ng-repeat="invite in invites" ng-if="invite.invited==null">
                         <td>{{invite.name}}</td>
                         <td>{{invite.email}}</td>
                         <td><a href="{{invite.website}}">{{invite.website}}</a></td>
@@ -82,7 +83,6 @@
                         <td ng-if="invite.invited===true"><i class="fa fa-check-circle">Invited</i></td>
                         <td ng-if="invite.invited===false"><i class="fa fa-close" >Denied</i></td>
                         <td ng-if="invite.invited==null"><a class="fa fa-plus-square" href="#" ng-click="accept(invite)">Accept</a> | <a class="fa fa-minus-square" href="#" ng-click="deny(invite)">Deny</a></td>
-
                     </tr>
                 </tbody>
             </table>
