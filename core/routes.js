@@ -8,7 +8,7 @@ var api = require("./api");
 module.exports = function(app){
 
     app.get('/', function(req,res){
-        res.render('layout-fullscreen-subscription-form');
+        res.render('index');
     });
 
     app.get('/login', function(req,res){

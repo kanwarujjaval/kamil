@@ -8,15 +8,15 @@ exports.sendInviteMail = function (res, email, messageHtml, messageSubject) {
     var message = {
         "html": messageHtml,
         "subject": messageSubject,
-        "from_email": "admin@nastraq.com",
-        "from_name": "Web Team",
+        "from_email": "no-reply@traqhound.com",
+        "from_name": "TraqHound",
         "to": [{
             "email": email,
             "name": "User",
             "type": "to"
         }],
         "headers": {
-            "Reply-To": "admin@nastraq.com"
+            "Reply-To": "no-reply@traqhound.com"
         },
         "important": true,
         "track_opens": null,
@@ -28,7 +28,7 @@ exports.sendInviteMail = function (res, email, messageHtml, messageSubject) {
         "preserve_recipients": null,
         "view_content_link": null,
         "tracking_domain": null,
-        "signing_domain": "admin@nastraq.com",
+        "signing_domain": "traqhound.com",
         "return_path_domain": null,
         "tags": [
             "invite-signup"
@@ -64,7 +64,7 @@ exports.sendContactMail = function (res, email, name,messageHtml, messageSubject
             "type": "to"
         }],
         "headers": {
-            "Reply-To": "admin@nastraq.com"
+            "Reply-To": "no-reply@traqhound.com "
         },
         "important": true,
         "track_opens": null,
