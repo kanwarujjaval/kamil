@@ -44,7 +44,7 @@ exports.createInvite = function (req, res, next) {
                     else {
                         mailer.sendInviteMail(res, req.body.email, '<p>Hey '+ req.body.name +'<br/><br/>Congratulations! You have successfully completed the application process. Our TraqHound staff is currently reviewing your submission. An update email will be sent to you within 48 hours. Please stay tuned...<br/><br/>Cheers,<br/>Team TraqHound</p>', 'Your application is under review');
                         res.render('msg',{
-                            msg:"Your invite has been created"
+                            msg:"Your application has been received.You will hear from us within 48 hours."
                         });
                     }
                 });
@@ -115,10 +115,10 @@ exports.createSubscribe = function (req, res, next) {
                         res.send(err);
                     }
                     else {
-                        mailer.sendInviteMail(res, req.body.email, '<p>Hello<br/>Your request for TraqHound subscription has been confirmed!</p>', 'Your TraqHound Subscription');
+                        mailer.sendInviteMail(res, req.body.email, '<p>Hello<br/>You will receive an email from us when we launch in late spring 2015. </p>', 'Thank you for registering - TraqHound');
                         api.saveSubscribes();
                         res.render('msg',{
-                            msg:"You are now subscribed!"
+                            msg:"Thank you for registering. You will receive an email from us when we launch in the late spring of 2015."
                         });
                     }
                 });
