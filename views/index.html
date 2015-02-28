@@ -19,11 +19,19 @@
     <link rel="stylesheet" href="/css/animate.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <link id="color-css" rel="stylesheet" href="css/colors/blue.css">
-
+<style>
+    .no-close .ui-dialog-titlebar-close {
+        display: none;
+    }
+    #dialog {
+        background: #fff;
+    }
+</style>
 </head>
 
 <body class="enable-animations enable-preloader">
 <div id="document" class="document">
+    <div id="cont1">
     <header id="header" class="header-section section section-dark navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header navbar-left">
@@ -594,10 +602,15 @@
     </section>
 
 </div>
-
+    </div>
+<div id="dialog">Enter Password to access the content.
+    <input type="password" id="pass"/>
+    <input type="button" id="b" value="Submit"/>
+</div>
 <!-- JAVASCRIPT
 		================================= -->
 <script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/respimage.min.js"></script>
 <script src="js/jpreloader.min.js"></script>
@@ -609,12 +622,35 @@
 <!--<script src="js/maplace-0.1.3.min.js"></script>-->
 <script src="js/script.js"></script>
 <script type="text/javascript">
+    $("#dialog").dialog({
+        dialogClass: "no-close",
+    });
+    $(document).ready(function () {
+        var password = "1989";
+        $("#cont1").css({
+            "visibility":"hidden"
+        });
+        $("body").css({"overflow":"hidden"});
+        $("#b").click(function () {
+            if ($("#pass").val() !== password) {
+                alert("Incorrect password")
+            } else {
+                $("#cont1").css({
+                    "visibility":""
+                });
+                $("body").css({"overflow":"visible"});
+                $("#dialog").css({
+                    "display": "none"
+                });
+            }
+        });
+    });
     $(document).ready(function() {
         $(document).on('submit', '#calculator', function(e) {
             e.preventDefault();
             var money,fin;
             money = $('#calc-money').val();
-            money = money.replace(/\,/g,'');
+            money = money.replace(/\,/g,''  );
             money = parseInt(money,10);
             if(money<100){
                 $('#payment').val('Minimum value should be 100!');
